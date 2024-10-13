@@ -115,7 +115,7 @@ const HomeScreen = ({ navigation, matrixList, setMatrixList }) => {
 
                 <View style={styles.row}>
                   <Text style={styles.label}>Approver {item.approvalNumber}</Text>
-                  <Text style={styles.group}>{Array.isArray(item.groups) ? item.groups.join(', ') : 'N/A'}</Text>
+                  {/* <Text style={styles.group}>{Array.isArray(item.groups) ? item.groups.join(', ') : 'N/A'}</Text> */}
                 </View>
               </TouchableOpacity>
             )}
@@ -169,11 +169,11 @@ const styles = StyleSheet.create({
   line: {
     height: 1,
     backgroundColor: '#e3e3e3',
-    marginHorizontal: 20,
+    marginHorizontal: 10,
   },
   inputbox: {
     marginVertical: 10,
-    width: '90%',
+    width: '95%',
     borderColor: '#e3e3e3',
     borderRadius: 25,
     borderWidth: 1.5,
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
   },
   itemBox: {
     backgroundColor: '#FFF',
-    width: '90%',
+    width: '95%',
     borderRadius: 20,
     padding: 15,
     marginVertical: 10,
@@ -220,21 +220,24 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: '400',
-    fontSize: 16,
+    fontSize: 13,
     flex: 1,
   },
   valueContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent :'space-between',
     flex: 1,
   },
   value: {
     color: '#007AFF',
-    marginRight: 5,
+    marginRight: 10,
+    marginBottom : 5,
   },
   number: {
     fontWeight: '400',
     color: '#007AFF',
+    marginBottom : 5,
   },
   group: {
     color: '#007AFF',
