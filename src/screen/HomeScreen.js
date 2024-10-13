@@ -26,15 +26,18 @@ const HomeScreen = ({ navigation, matrixList, setMatrixList }) => {
       </View>
 
       <View style={styles.container}>
-        <View style={styles.createbutton}>
+        <TouchableOpacity
+         style={styles.createbutton}
+         onPress={() => navigation.navigate('Create')}
+         >
           <AntDesign name="pluscircle" size={24} color="#fff" />
           <Text
             style={{ color: '#FFF', fontSize: 14, fontWeight: '500' }}
-            onPress={() => navigation.navigate('Create')}
+           
           >
             Tambah New Matrix
           </Text>
-        </View>
+        </TouchableOpacity>
 
         <View style={styles.line} />
 
@@ -43,13 +46,17 @@ const HomeScreen = ({ navigation, matrixList, setMatrixList }) => {
             style={[styles.inputbox, isFeatureSelected('Default') && styles.selectedBox]}
             onPress={() => handleSelectFeature('Default')}
           >
+            <Text style={[styles.optionText, isFeatureSelected('Default') && styles.selectedText, { paddingRight: 26}]}>
+              Default   
+            </Text>
+            <View style={[styles.optionstraight, isFeatureSelected('Default') && styles.selectedStraight ]}/>
             <Text style={[styles.optionText, isFeatureSelected('Default') && styles.selectedText]}>
               Default
             </Text>
             <AntDesign
               name={isFeatureSelected('Default') ? 'up' : 'down'}
               size={20}
-              color={isFeatureSelected('Default') ? 'yellow' : '#8F8F8FFF'}
+              color={isFeatureSelected('Default') ? '#FF9900' : '#8F8F8FFF'}
             />
           </TouchableOpacity>
 
@@ -60,10 +67,15 @@ const HomeScreen = ({ navigation, matrixList, setMatrixList }) => {
             <Text style={[styles.optionText, isFeatureSelected('Transfer Online') && styles.selectedText]}>
               Transfer Online
             </Text>
+            
+            <View style={[styles.optionstraight, isFeatureSelected('Default') && styles.selectedStraight ]}/>
+            <Text style={[styles.optionText, isFeatureSelected('Transfer Online') && styles.selectedText]}>
+              Transfer Online
+            </Text>
             <AntDesign
               name={isFeatureSelected('Transfer Online') ? 'up' : 'down'}
               size={20}
-              color={isFeatureSelected('Transfer Online') ? 'yellow' : '#8F8F8FFF'}
+              color={isFeatureSelected('Transfer Online') ? '#FF9900' : '#8F8F8FFF'}
             />
           </TouchableOpacity>
         </View>
@@ -164,20 +176,31 @@ const styles = StyleSheet.create({
     width: '90%',
     borderColor: '#e3e3e3',
     borderRadius: 25,
-    borderWidth: 1,
+    borderWidth: 1.5,
     flexDirection: 'row',
     padding: 10,
     alignItems: 'center',
     justifyContent: 'space-between',
+    height: 70,
   },
   selectedBox: {
-    borderColor: 'yellow',
+    borderColor: '#FF9900',
   },
   optionText: {
     color: '#000',
   },
   selectedText: {
-    color: 'yellow',
+    color: '#FF9900',
+  },
+  optionstraight : {
+    width : 2,
+    height : 40,
+    backgroundColor : '#e3e3e3'
+  },
+  selectedStraight : {
+    width : 2,
+    height : 40,
+    backgroundColor : '#FF9900'
   },
   itemBox: {
     backgroundColor: '#FFF',
